@@ -1,0 +1,18 @@
+<?php
+$item=$_POST['item'];
+$lot=$_POST['lot'];
+$qty=$_POST['qty'];
+$remarks=$_POST['remarks'];
+$id=$_POST['id'];
+require("dbc.php");			
+$db->beginTransaction();
+$sql= "insert into t_dispatch values(:id,:item,:lot,:qty,:remarks);";
+$query=$db->prepare($sql);
+$query->execute( array(
+	':id'=>$id,
+	':item'=>$item,
+	':lot'=>$lot,
+	':qty'=>$qty,
+	':remarks'=>$remarks	));
+   $db->commit();
+   header("location:insert2h.php?id=$id"); ?>

@@ -1,0 +1,83 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <style>
+            .button {
+             background-color: #4CAF50;
+             border: none;
+             color: white;
+             padding: 15px 32px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+            }
+            .txt{
+            text-decoration: bold;
+            display: inline-block;
+            font-size: 22px;
+            }
+            .button:hover {
+            background-color: #af3e64; 
+            color: white;
+            cursor:pointer;
+}
+        </style>
+    </head>
+        <body style="background-color:#f5fff6">
+        <br><br>
+        <h1><font face="calibri" color="green" size="200%"><b><center>ENTER DRUG DETAILS</b></center></font></h1>
+    <form action="insert1.php" method="post" name="cpc_regn" >
+        <br><br><br>
+        <table cellpadding="2" width="40%" align="center" cellspacing="10">
+            <tr>
+            <td align="right" class="txt">BATCH ID:</td>
+            <td><input type="text" name="id" id="id" size="30" ></td>
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">DRUG NAME:</td>
+            <td><input type="text" name="sub" id="sub" size="30"></td>
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">TERM OF EXPIRY:</td>
+            <td><input type="date" name="dod" id="dod">
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">NAME OF FIRM:</td>
+            <td><input type="text" name="vehicle_no" id="vehicle_no" size="30" ></td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">MRP:</td>
+            <td><input type="text" name="vehicle_no" id="vehicle_no" size="30" ></td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">QTY:</td>
+            <td><input type="text" name="vehicle_no" id="vehicle_no" size="30" ></td>
+            </tr>
+            <tr>
+            </tr>
+            </table>
+            <br><br>
+            <table width="33%" align="center">
+            <tr>
+            <td align="left"><input type="reset" class="button" value="reset"></td>
+            <td align="center"><input type="submit" class="button" value="Submit"></td>
+            <td align="right"><a href="index.html"><input type="button" class="button" value="EXIT"></a></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

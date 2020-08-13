@@ -1,0 +1,84 @@
+<?php
+require('dbc.php');
+$id=$_POST['id'];
+$sql = "Select * from m_dispatch where id='".$id."'";
+$rs = $db->query($sql)->fetch(PDO::FETCH_OBJ); 	
+?>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <style>
+            .button {
+             background-color: #4CAF50;
+             border: none;
+             color: white;
+             padding: 15px 32px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+            }
+            .txt{
+            text-decoration: bold;
+            display: inline-block;
+            font-size: 22px;
+            }
+            .button:hover {
+            background-color: #af3e64; 
+            color: white;
+            cursor:pointer;
+}
+        </style>
+    </head>    
+    <body style="background-color:#f5fff6">
+        <br><br>
+        <h1><font face="calibri" color="green" size="200%"><b><center>ENTER DISPATCH DETAILS
+		</b></center></font></h1>
+       <form action="m1.php" method="post" name="cpc_regn" >
+        <br><br><br>
+        <table cellpadding="2" width="35%" align="center" cellspacing="10">
+            <tr>
+            <td align="right" class="txt">ID:</td>
+            <td><input type="text" name="id" id="id" size="30" <?php echo'value="'.$rs->id.'"';?> readonly></td>
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">Subject</td>
+            <td><input type="text" name="sub" id="sub" size="30" <?php echo'value="'.$rs->sub.'"';?>></td>
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">date</td>
+            <td><input type="date" name="dod" id="dod">
+            </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">vehicle number</td>
+            <td><input type="text" name="vehicle_no" id="vehicle_no" size="30" <?php echo'value="'.$rs->vehicle_no.'"';?>></td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            <td align="right" class="txt">driver</td>
+            <td><input type="text" name="driver" id="driver" size="30" <?php echo'value="'.$rs->driver.'"';?>></td>
+            </tr>
+            <tr>
+            </tr>
+            </table>
+            <br><br>
+            <table width="33%" align="center">
+            <tr>
+            <td align="left"><input type="reset" class="button" value="reset"></td>
+            <td align="center"><input type="submit" class="button" value="Update"></td>
+            <td align="right"><a href="index.html"><input type="button" class="button" value="EXIT"></a></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<?php
+require('dbc.php');
+$id=$_POST['id'];
+$name=$_POST['name'];
+$expiry=$_POST['expiry'];
+$firm=$_POST['firm'];
+$mrp=$_POST['mrp'];
+$qty=$_POST['qty'];
+$db->beginTransaction();
+$sql="insert into inventory(id,name,expiry,firm,mrp,qty) values(:id,:name,:expiry,:firm,:mrp,:qty)";
+$query=$db->prepare($sql);
+$query->execute( array(
+	':id'=>$id,
+	':name'=>$name,
+	':expiry'=>$expiry,
+	':firm'=>$firm,
+	':mrp'=>$mrp,
+	':qty'=>$qty
+	));
+	if($query->rowcount()!=1)
+	{
+	echo"Not Inserted ERROR !!!";
+	$db->rollBack();
+	}
+	else 
+   { 
+   		$db->commit();
+			
+	}
+?>

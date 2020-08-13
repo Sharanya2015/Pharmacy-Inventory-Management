@@ -1,0 +1,26 @@
+<?php
+//var_dump($_POST);
+require('dbc.php');
+$id=$_POST['id'];
+$sub=$_POST['sub'];
+$dod=$_POST['dod'];
+$vehicle_no=$_POST['vehicle_no'];
+$driver=$_POST['driver'];
+			$db->beginTransaction();
+			$sql =  "UPDATE  m_dispatch SET sub=:sub,dod=:dod,vehicle_no=:vehicle_no,driver=:driver Where id='".$id."'";                         
+			$query = $db->prepare($sql);
+			$query->execute(array(
+											':sub'=>$sub,
+											':dod'=>$dod,
+											':vehicle_no'=>$vehicle_no,
+											':driver'=>$driver
+											));
+		if ($query->rowCount()!='1'){
+                echo 'NOT INSERTED.ERROR!!!!';
+				$db->rollBack();
+		} else {
+            echo 'SUCCESS!!!!';
+			$db->commit();
+			header('Location:index.html');
+			}
+?>
